@@ -1,261 +1,125 @@
-<!doctype html>
-<html lang="id">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>50 Reasons I Love You Tianna</title>
-<style>
-  :root {
-    --bg1: #0b0b1a;
-    --bg2: #141432;
-    --accent1: #a18aff;
-    --accent2: #67b8ff;
-    --heart: #ff7ad9;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I'm Sorry, Tianna 💜</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-  * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #b39ddb, #7e57c2, #3949ab);
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+    }
 
-  body {
-    margin: 0;
-    height: 100vh;
-    background: radial-gradient(circle at top left, var(--bg2), var(--bg1));
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    color: #eef3ff;
-    text-align: center;
-  }
+    h1 {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #f3e5f5;
+      text-shadow: 0 0 10px rgba(255,255,255,0.4);
+    }
 
-  body::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(161,138,255,0.15), transparent 60%),
-                radial-gradient(circle at 80% 80%, rgba(103,184,255,0.12), transparent 60%);
-    animation: pulse 6s ease-in-out infinite alternate;
-    z-index: 0;
-  }
+    .container {
+      position: relative;
+      width: 90%;
+      max-width: 480px;
+      height: 300px;
+      perspective: 1000px;
+    }
 
-  @keyframes pulse {
-    0% { opacity: 0.7; transform: scale(1); }
-    100% { opacity: 1; transform: scale(1.05); }
-  }
+    .card {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+      font-size: 1.1rem;
+      transition: transform 0.5s, opacity 0.5s;
+    }
 
-  /* 💜 Elegant Centered Header (Above Swipe Card) */
-  header {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #d8caff;
-    text-shadow: 0 0 10px #a18aff, 0 0 25px #67b8ff;
-    margin-bottom: 25px;
-    animation: fadeIn 1.5s ease;
-    z-index: 2;
-  }
+    .hidden {
+      opacity: 0;
+      transform: translateX(100%) rotateY(20deg);
+      pointer-events: none;
+    }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+    .show {
+      opacity: 1;
+      transform: translateX(0) rotateY(0);
+    }
 
-  .card {
-    position: relative;
-    z-index: 2;
-    width: 90%;
-    max-width: 420px;
-    text-align: center;
-    padding: 45px 28px;
-    border-radius: 20px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-    border: 1px solid rgba(255,255,255,0.15);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(161,138,255,0.15);
-    transition: transform .5s ease, opacity .5s ease;
-    animation: lovePop 0.6s ease forwards;
-  }
+    .button {
+      margin-top: 40px;
+      padding: 12px 28px;
+      background-color: rgba(255, 255, 255, 0.15);
+      border: none;
+      border-radius: 25px;
+      color: white;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 15px rgba(255,255,255,0.2);
+    }
 
-  .num {
-    font-weight: 600;
-    font-size: 14px;
-    background: linear-gradient(90deg, var(--accent1), var(--accent2));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 16px;
-  }
+    .button:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+      transform: scale(1.05);
+    }
 
-  .reason {
-    font-size: 18px;
-    line-height: 1.5;
-  }
-
-  .controls {
-    position: fixed;
-    bottom: 28px;
-    display: flex;
-    gap: 18px;
-    z-index: 2;
-  }
-
-  button {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 12px;
-    padding: 10px 16px;
-    color: #fff;
-    font-weight: 500;
-    cursor: pointer;
-    backdrop-filter: blur(4px);
-    transition: all .3s ease;
-  }
-
-  button:hover {
-    background: rgba(161,138,255,0.25);
-    transform: scale(1.05);
-  }
-
-  @keyframes lovePop {
-    0% { transform: scale(0.7) rotate(-3deg); opacity: 0; }
-    60% { transform: scale(1.05) rotate(2deg); opacity: 1; }
-    100% { transform: scale(1) rotate(0); }
-  }
-
-  /* Floating hearts */
-  .heart {
-    position: absolute;
-    bottom: -20px;
-    color: var(--heart);
-    font-size: 16px;
-    opacity: 0.7;
-    animation: floatUp 4s linear forwards;
-  }
-
-  @keyframes floatUp {
-    0% { transform: translateY(0) scale(1); opacity: 0.7; }
-    80% { opacity: 1; }
-    100% { transform: translateY(-250px) scale(0.5); opacity: 0; }
-  }
-</style>
+    footer {
+      margin-top: 25px;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+  </style>
 </head>
 <body>
+  <h1>I'm Sorry, Tianna 💜</h1>
 
-  <!-- 💞 Header now centered above the swipe card -->
-  <header>💜 50 Reasons I Love You, Tianna 💙</header>
-
-  <div id="card" class="card">
-    <div class="num" id="num"></div>
-    <div class="reason" id="reason"></div>
+  <div class="container">
+    <div class="card show">I made this page not to ask for forgiveness, but to show that I truly understand my mistake and how deeply I regret it.</div>
+    <div class="card hidden">I know my words and actions may have hurt you and every time I think about it, my heart aches all over again. I don’t want to justify anything. I was wrong, and I’m truly sorry.</div>
+    <div class="card hidden">Tianna, you have always meant so much to me. Your laughter, your warmth,your joke, your troll  and the little things you say  they all mean the world to me.</div>
+    <div class="card hidden">I’m not asking you to forget. I just want you to know that I’m learning, growing, and reflecting because of this because you matter that much to me.</div>
+    <div class="card hidden">This page isn’t about regret that fades with time. It’s about honesty that stays and feelings that remain gentle, real, and true.</div>
+    <div class="card hidden">I promise I’ll do better. I’m committed to fixing what I broke and becoming someone you can trust again. I hope one day we can laugh, talk, and have fun like we used to. 💫</div>
+    <div class="card hidden">No matter how much time it takes, I’ll keep wishing you peace, happiness, and love in every step you take.</div>
+    <div class="card hidden">And when the time feels right… I just want you to know .I love you. Mahal Na Mahal Kita Tianna >< 💙</div>
   </div>
 
-  <div class="controls">
-    <button id="prevBtn">⬅️ Previous</button>
-    <button id="nextBtn">➡️ Next</button>
-  </div>
+  <button class="button" onclick="nextCard()">Next 💜</button>
 
-<script>
-const reasons = [
-"Because your laugh is kawai",
-"Because your troll so fun xD",
-"Because we can talk about anything and everything yeah from normal until pervert :3",
-"Because you I get some new knowledge",
-"Because you always beat me in Clash royale",
-"Because you always troll in brawl star, yes use Gus and Die",
-"Because you're so cute and so curious with anything",
-"Because you say i am cute xD",
-"Because you are Pervert",
-"Because you love Femboy and Yaoi and all i unexpect",
-"Because your share tiktok video so fun, i like all your share video, BUT NO FEMBOY XD",
-"Because you make me feel calm even on my worst days",
-"Because your smile is my favorite sight in the world",
-"Because I love your creativity in cook",
-"Because your voice feels like home",
-"Because you always know what to say when I’m lost",
-"Because you make ordinary moments feel special",
-"Because you’re patient with me even when I’m difficult",
-"Because you truly listen when I speak",
-"Because you love horror and make now curious and want to watch horror",
-"Because your heart is soft and kind",
-"Because you believe in me even when I doubt myself",
-"Because the little things you do mean everything to me",
-"Because you’re honest, even when it’s hard",
-"Because you make me feel at home",
-"Because you remember the smallest details about me",
-"Because you’re beautiful inside and out",
-"Because your silly side makes life brighter",
-"Because you always find the good in people",
-"Because your passion for life amazes me",
-"Because your gaze that so deep",
-"Because you care me",
-"Because your presence feels like home",
-"Because you’re my safe place",
-"Because your imperfections make you perfect to me",
-"Because you always want to help me ",
-"Because your energy fills my world with light",
-"Because you’re patient with my flaws",
-"Because I love when you try to teach me and correct me",
-"Because you so cute ",
-"Because you still wanna talk with me",
-"Because you still give me chance ",
-"Because I love hear your breathe when our first sleepcall ehe",
-"Because you’re simply you",
-"Because your Ara ara make me melting ",
-"Because I love spend my time together with you",
-"Because you’re my best friend and my love",
-"Because loving you feels like breathing, natural and endless",
-"Because you are my love and only",
-"Because I love You",
-];
+  <footer>Made with sincerity and hope — by Victor</footer>
 
-let index = 0;
-const num = document.getElementById('num');
-const reason = document.getElementById('reason');
-const card = document.getElementById('card');
+  <script>
+    let current = 0;
+    const cards = document.querySelectorAll('.card');
 
-function showReason(i) {
-  card.style.animation = "none";
-  void card.offsetWidth;
-  card.style.animation = "lovePop 0.6s ease";
-  reason.textContent = reasons[i];
-  num.textContent = `${i+1}/50`;
-  createHeart();
-}
-
-function createHeart(){
-  const heart = document.createElement('div');
-  heart.classList.add('heart');
-  heart.innerHTML = "💜";
-  heart.style.left = Math.random()*window.innerWidth + 'px';
-  document.body.appendChild(heart);
-  setTimeout(()=>heart.remove(),4000);
-}
-
-document.getElementById('nextBtn').addEventListener('click', ()=>{
-  index = (index+1)%reasons.length;
-  showReason(index);
-});
-document.getElementById('prevBtn').addEventListener('click', ()=>{
-  index = (index-1+reasons.length)%reasons.length;
-  showReason(index);
-});
-
-// Swipe gesture
-let startX = 0;
-card.addEventListener('touchstart', e=>startX = e.touches[0].clientX);
-card.addEventListener('touchend', e=>{
-  const diff = e.changedTouches[0].clientX - startX;
-  if(Math.abs(diff)>50){
-    if(diff>0){
-      index = (index-1+reasons.length)%reasons.length;
-    } else {
-      index = (index+1)%reasons.length;
+    function nextCard() {
+      cards[current].classList.remove('show');
+      cards[current].classList.add('hidden');
+      current = (current + 1) % cards.length;
+      cards[current].classList.remove('hidden');
+      cards[current].classList.add('show');
     }
-    showReason(index);
-  }
-});
-
-// Initial
-showReason(index);
-</script>
+  </script>
 </body>
 </html>
