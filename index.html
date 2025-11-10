@@ -24,7 +24,7 @@
       text-align: center;
       font-size: 1.8rem;
       font-weight: 600;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       color: #f3e5f5;
       text-shadow: 0 0 10px rgba(255,255,255,0.4);
     }
@@ -35,6 +35,7 @@
       max-width: 480px;
       height: 300px;
       perspective: 1000px;
+      margin-bottom: 50px; /* ✅ jarak antara card dan tombol */
     }
 
     .card {
@@ -67,7 +68,6 @@
     }
 
     .button {
-      margin-top: 40px;
       padding: 12px 28px;
       background-color: rgba(255, 255, 255, 0.15);
       border: none;
@@ -79,9 +79,15 @@
       box-shadow: 0 0 15px rgba(255,255,255,0.2);
     }
 
-    .button:hover {
+    .button:hover:not(:disabled) {
       background-color: rgba(255, 255, 255, 0.25);
       transform: scale(1.05);
+    }
+
+    .button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
     }
 
     footer {
@@ -97,28 +103,48 @@
   <div class="container">
     <div class="card show">I made this page not to ask for forgiveness, but to show that I truly understand my mistake and how deeply I regret it.</div>
     <div class="card hidden">I know my words and actions may have hurt you and every time I think about it, my heart aches all over again. I don’t want to justify anything. I was wrong, and I’m truly sorry.</div>
-    <div class="card hidden">Tianna, you have always meant so much to me. Your laughter, your warmth,your joke, your troll  and the little things you say  they all mean the world to me.</div>
-    <div class="card hidden">I’m not asking you to forget. I just want you to know that I’m learning, growing, and reflecting because of this because you matter that much to me.</div>
+    <div class="card hidden">Tianna, you have always meant so much to me. Your laughter, your warmth, your jokes, your trolls, and the little things you say they all mean the world to me.</div>
+    <div class="card hidden">I’m not asking you to forget. I just want you to know that I’m learning, growing, and reflecting because of this  because you matter that much to me.</div>
     <div class="card hidden">This page isn’t about regret that fades with time. It’s about honesty that stays and feelings that remain gentle, real, and true.</div>
     <div class="card hidden">I promise I’ll do better. I’m committed to fixing what I broke and becoming someone you can trust again. I hope one day we can laugh, talk, and have fun like we used to. 💫</div>
     <div class="card hidden">No matter how much time it takes, I’ll keep wishing you peace, happiness, and love in every step you take.</div>
-    <div class="card hidden">And when the time feels right… I just want you to know .I love you. Mahal Na Mahal Kita Tianna >< 💙</div>
+    <div class="card hidden">And when the time feels right… I just want you to know... I love you. Mahal na mahal kita, Tianna. 💙</div>
   </div>
 
-  <button class="button" onclick="nextCard()">Next 💜</button>
+  
 
-  <footer>Made with sincerity and hope — by Victor</footer>
+  <button class="button" id="nextBtn" onclick="nextCard()">Next 💜</button>
+
+  <footer>Made with sincerity and hope by Victor</footer>
 
   <script>
     let current = 0;
     const cards = document.querySelectorAll('.card');
+    const nextBtn = document.getElementById('nextBtn');
 
     function nextCard() {
+      // sembunyikan current card
       cards[current].classList.remove('show');
       cards[current].classList.add('hidden');
-      current = (current + 1) % cards.length;
+
+      // lanjut ke card berikutnya
+      current++;
+
+      // jika sudah sampai akhir
+      if (current >= cards.length) {
+        nextBtn.textContent = "End 💫";
+        nextBtn.disabled = true;
+        return;
+      }
+
+      // tampilkan card berikutnya
       cards[current].classList.remove('hidden');
       cards[current].classList.add('show');
+
+      // ubah teks tombol saat mencapai card terakhir
+      if (current === cards.length - 1) {
+        nextBtn.textContent = "Finish 💙";
+      }
     }
   </script>
 </body>
