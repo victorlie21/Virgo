@@ -1,1 +1,151 @@
-Dlt
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Em Bé xin lỗi Anh thật lòng 💙</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #d6eaff, #a7c8ff, #6fa8ff);
+      color: #ffffff;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 25px;
+      color: #f0f7ff;
+      text-shadow: 0 0 10px rgba(255,255,255,0.45);
+    }
+
+    .container {
+      position: relative;
+      width: 90%;
+      max-width: 480px;
+      height: 300px;
+      perspective: 1000px;
+      margin-bottom: 50px;
+    }
+
+    .card {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+      font-size: 1.1rem;
+      transition: transform 0.5s, opacity 0.5s;
+    }
+
+    .hidden {
+      opacity: 0;
+      transform: translateX(100%) rotateY(20deg);
+      pointer-events: none;
+    }
+
+    .show {
+      opacity: 1;
+      transform: translateX(0) rotateY(0);
+    }
+
+    .button {
+      padding: 12px 28px;
+      background-color: rgba(255, 255, 255, 0.25);
+      border: none;
+      border-radius: 25px;
+      color: white;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 15px rgba(255,255,255,0.3);
+    }
+
+    .button:hover:not(:disabled) {
+      background-color: rgba(255, 255, 255, 0.35);
+      transform: scale(1.05);
+    }
+
+    .button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    footer {
+      margin-top: 25px;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <h1>Xin lỗi nhé, Xuân Mai 💙</h1>
+
+  <div class="container">
+    <div class="card show">I made this page not to ask for forgiveness, but to show that I truly understand my mistake and how deeply I regret it.</div>
+    <div class="card hidden">I know my  actions  make you not comfort sorry about that  spamming, and all mah haiya because yeah really i love you mah so love love hear you yellingg</div>
+    <div class="card hidden">Xuan Mai, you mean so much to me. Your laughter, your warmth,your yelling, your rude word mah , all mah walawe .</div>
+    <div class="card hidden">I’m not asking you to forget. I just want you to know that I’m learning and growing because you matter that much to me.</div>
+    <div class="card hidden">This page isn’t just about regret. It’s about honesty that stays, and feelings that stay gentle and real.</div>
+    <div class="card hidden">I promise I’ll do better. Because i wanna be your home your safe place not your enemy</div>
+    <div class="card hidden">No matter how long it takes, I’ll keep wishing you peace, happiness, and love.</div>
+
+    <!-- 🌸 Vietnamese hidden card (humanized) -->
+    <div class="card hidden">
+      Em biết mình chưa hoàn hảo, nhưng từng ngày em đều cố gắng để trở thành người khiến anh cảm thấy bình yên.  
+      Em xin lỗi vì những điều làm anh buồn.  
+      Em thương anh thật lòng, Xuân Mai à.
+      Love You Mah Mai
+    </div>
+  </div>
+
+  <button class="button" id="nextBtn" onclick="nextCard()">Next 💙</button>
+
+  <footer>Được làm bằng sự chân thành và tình yêu bởi Victor.</footer>
+
+  <script>
+    let current = 0;
+    const cards = document.querySelectorAll('.card');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function nextCard() {
+      cards[current].classList.remove('show');
+      cards[current].classList.add('hidden');
+
+      current++;
+
+      if (current >= cards.length) {
+        nextBtn.textContent = "End 💫";
+        nextBtn.disabled = true;
+        return;
+      }
+
+      cards[current].classList.remove('hidden');
+      cards[current].classList.add('show');
+
+      if (current === cards.length - 1) {
+        nextBtn.textContent = "Finish 💙";
+      }
+    }
+  </script>
+</body>
+</html>
